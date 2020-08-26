@@ -16,7 +16,7 @@ let package = Package(
             targets: ["ChartsUILibrary"]),
         .library(
             name: "PieChart",
-            targets: ["PieChart"]),
+            targets: ["PieChartView"]),
     ],
     dependencies: [],
     targets: [
@@ -26,7 +26,7 @@ let package = Package(
             name: "ChartsUILibrary",
             dependencies: []),
         .target(
-            name: "PieChart",
+            name: "PieChartView",
             dependencies: []),
     ]
 )
