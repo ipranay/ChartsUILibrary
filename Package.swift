@@ -5,10 +5,6 @@ import PackageDescription
 
 let package = Package(
     name: "ChartsUILibrary",
-    platforms: [
-        .iOS(.v14),
-        .macOS(.v10_16)
-    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -16,7 +12,10 @@ let package = Package(
             targets: ["ChartsUILibrary"]),
         .library(
             name: "PieChart",
-            targets: ["PieChartView"]),
+            targets: ["PieChart"]),
+        .library(
+            name: "BarChart",
+            targets: ["BarChart"]),
     ],
     dependencies: [],
     targets: [
@@ -26,7 +25,10 @@ let package = Package(
             name: "ChartsUILibrary",
             dependencies: []),
         .target(
-            name: "PieChartView",
+            name: "PieChart",
+            dependencies: []),
+        .target(
+            name: "BarChart",
             dependencies: []),
     ]
 )
