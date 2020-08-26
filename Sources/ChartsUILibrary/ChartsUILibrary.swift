@@ -1,6 +1,6 @@
-struct ChartsUILibrary {
-    var text = "Hello, World!"
-}
+//struct ChartsUILibrary {
+//    var text = "Hello, World!"
+//}
 
 public func testChartsUILibrary() {
     print("Welcome to the ChartsUILibrary package!")
