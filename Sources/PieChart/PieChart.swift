@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 14.0.0, OSX 10.15.0, tvOS 13.0.0, watchOS 6.0, *)
-struct PieChart: View {
+struct PieChartView: View {
     public init() {}
 
     var body: some View {
@@ -17,8 +17,8 @@ struct PieChart: View {
 }
 
 @available(iOS 14.0.0, OSX 10.15.0, tvOS 13.0.0, watchOS 6.0, *)
-struct PieChart_Previews: PreviewProvider {
+struct PieChartView_Previews: PreviewProvider {
     static var previews: some View {
-        PieChart()
+        PieChartView()
     }
 }
