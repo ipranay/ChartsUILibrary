@@ -67,9 +67,10 @@ struct BarChartView_Previews: PreviewProvider {
         let data = BarChartData([Float(5), 10, 20, 5, 3, 12])
         
         return Group {
-            BarChartView(data: data, color: Color.blue, bgColor: Color.white.opacity(0), hideLabels: true)
+            BarChartView(data: data, color: Color.blue, bgColor: Color.white.opacity(0), hideLabels: false)
                 .preferredColorScheme(.light)
                 .frame(width: 200)
+                .background(Color.red)
 
             BarChartView(data: data)
                 .preferredColorScheme(.dark)
@@ -80,7 +81,6 @@ struct BarChartView_Previews: PreviewProvider {
 }
 
 struct BarView: View {
-    let fullLength = CGFloat(100.0)
     let textLength = CGFloat(20.0)
     let spacing = CGFloat(5.0)
     let barThickness = CGFloat(5.0)
@@ -97,7 +97,7 @@ struct BarView: View {
     }
     
     func fullLength(_ geometry: GeometryProxy) -> CGFloat {
-        geometry.size.width - (hideLabel ? 0 : textLength - spacing)
+        geometry.size.width - (hideLabel ? 0 : textLength + spacing)
     }
     
     public var body: some View {
