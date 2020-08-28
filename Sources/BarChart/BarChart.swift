@@ -8,25 +8,25 @@
 import SwiftUI
 
 public struct BarChartData {
-    var values : [BarChartItem]
+    public var values : [BarChartItem]
     
-    init(_ values : [BarChartItem], hideLabels: Bool = false) {
+    public init(_ values : [BarChartItem], hideLabels: Bool = false) {
         self.values = values
     }
     
-    init(_ values : [Float], hideLabels: Bool = false) {
+    public init(_ values : [Float], hideLabels: Bool = false) {
         self.values = values.map({ (floatValue) -> BarChartItem in
             BarChartItem(value: floatValue, label: "\(Int(floatValue))")
         })
     }
     
-    struct BarChartItem : Comparable, Identifiable {
-        var value : Float
-        var label : String
+    public struct BarChartItem : Comparable, Identifiable {
+        public var value : Float
+        public var label : String
 
-        var id : Float { value }
+        public var id : Float { value }
 
-        static func < (lhs: BarChartItem, rhs: BarChartItem) -> Bool {
+        public static func < (lhs: BarChartItem, rhs: BarChartItem) -> Bool {
             lhs.value < rhs.value
         }
     }
