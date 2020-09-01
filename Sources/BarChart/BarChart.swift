@@ -69,14 +69,14 @@ struct BarChartView_Previews: PreviewProvider {
         return Group {
             BarChartView(data: data, color: Color.blue, bgColor: Color.white.opacity(0), hideLabels: false)
                 .preferredColorScheme(.light)
-                .frame(width: 200)
-                .background(Color.red)
 
             BarChartView(data: data)
                 .preferredColorScheme(.dark)
-                .frame(width: 200)
-                
          }
+            .frame(width: 200)
+            .padding()
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(10)
     }
 }
 
