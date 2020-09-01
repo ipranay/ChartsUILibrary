@@ -17,6 +17,9 @@ let package = Package(
         .library(
             name: "BarChart",
             targets: ["BarChart"]),
+        .library(
+            name: "RingChart",
+            targets: ["RingChart"]),
     ],
     dependencies: [],
     targets: [
@@ -30,6 +33,9 @@ let package = Package(
             dependencies: []),
         .target(
             name: "BarChart",
+            dependencies: []),
+        .target(
+            name: "RingChart",
             dependencies: []),
     ]
 )
