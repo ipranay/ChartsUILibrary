@@ -7,15 +7,22 @@
 
 import SwiftUI
 
-struct RingChartView: View {
-    var value : Double
-    @State var text : String?
-    var color : Color
+@available(iOS 14.0.0, OSX 10.15.0, tvOS 13.0.0, watchOS 6.0, *)
+public struct RingChartView: View {
+    let data : Double
+    let text : String?
+    let color : Color
     
     @State private var show: Bool = false
     
     var displayText : String {
-        text ?? "\(Int(value * 100))%"
+        text ?? "\(Int(data * 100))%"
+    }
+    
+    public init(data: Double, color: Color = Color.blue, text: String? = nil) {
+        self.data = data
+        self.color = color
+        self.text = text
     }
     
     func multiplier(_ geometry: GeometryProxy) -> CGFloat {
@@ -34,14 +41,14 @@ struct RingChartView: View {
         return 12.0 * multiplier(geometry)
     }
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             ZStack {
                 Circle()
                     .stroke(color.opacity(0.1), style: StrokeStyle(lineWidth: strokeWidth(geometry)))
                 
                 Circle()
-                    .trim(from: 0, to: self.show ? CGFloat(value) : 0)
+                    .trim(from: 0, to: self.show ? CGFloat(data) : 0)
                     .stroke(color, style: StrokeStyle(lineWidth: strokeWidth(geometry), lineCap: .round))
                     .rotationEffect(Angle(degrees: -90))
                     .shadow(color: color.opacity(0.2), radius: shadowRadius(geometry), x: 0, y: 3)
@@ -59,6 +66,7 @@ struct RingChartView: View {
     }
 }
 
+@available(iOS 14.0.0, OSX 10.15.0, tvOS 13.0.0, watchOS 6.0, *)
 struct RingChartView_Previews: PreviewProvider {
     static var previews: some View {
         PreviewWrapper()
@@ -70,7 +78,7 @@ struct RingChartView_Previews: PreviewProvider {
         var body: some View {
             VStack {
                 if (show) {
-                    RingChartView(value: 0.45, color: Color.blue)
+                    RingChartView(data: 0.45)
                         .frame(width: 300, height: 300)
                         .animation(Animation.spring(response: 0.5, dampingFraction: 0.6).delay(0.2))
                         .onTapGesture() {
